@@ -7,7 +7,6 @@ const backdrop = (props) => (
     <div 
         className={classes.Backdrop}
         onClick={props.clicked}>
-
     </div> : null
 );
 
