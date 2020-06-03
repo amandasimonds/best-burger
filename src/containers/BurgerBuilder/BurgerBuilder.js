@@ -22,16 +22,12 @@ class BurgerBuilder extends Component {
     //     this.state = {...}
     // }
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0,
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        error: false
     };
 
     componentDidMount() {
@@ -39,6 +35,9 @@ class BurgerBuilder extends Component {
             .then(response => {
                 console.log("ingredients get request", response)
                 this.setState({ingredients: response.data})
+            })
+            .catch(error =>{
+                this.setState({error:true})
             })
     }
 
@@ -141,18 +140,7 @@ class BurgerBuilder extends Component {
         };
 
         let orderSummary = null;
-
-        orderSummary = <OrderSummary 
-        ingredients={this.state.ingredients}
-        price={this.state.totalPrice}
-        purchaseCanceled={this.purchaseCancelHandler}
-        purchaseContinued={this.purchaseContinueHandler}/>;
-
-        if (this.state.loading) {
-            orderSummary = <Spinner/>
-        }
-
-        let burger = <Spinner/>
+        let burger = this.state.error ? <p>ingredients cannot be loaded</p> : <Spinner/>
 
         if (this.state.ingredients){
             burger =  (
@@ -166,6 +154,18 @@ class BurgerBuilder extends Component {
                 ordered={this.purchaseHandler}
                 purchasable={this.state.purchasable}/>
                 </Aux>)
+
+        orderSummary = 
+            (<OrderSummary 
+        ingredients={this.state.ingredients}
+        price={this.state.totalPrice}
+        purchaseCanceled={this.purchaseCancelHandler}
+        purchaseContinued={this.purchaseContinueHandler}/>);
+        }
+
+        
+        if (this.state.loading) {
+            orderSummary = <Spinner/>
         }
 
         return(
