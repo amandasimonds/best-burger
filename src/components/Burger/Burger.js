@@ -1,8 +1,13 @@
 import React from "react";
+import { withRouter } from "react-router-dom"
+
 import classes from "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient"
 
 const burger = (props) => {
+    //here we do not have params because it is not loaded through a route!
+    //this is why we use withRouter from react-router-dom, and wrap the component with "withRouter()" at the bottom
+    console.log(props)
    let transformedIngredients = Object.keys(props.ingredients)
         .map(igKey => {
             //return an array with number of spaces equal to number of ingredients
@@ -29,4 +34,4 @@ const burger = (props) => {
     );
 }
 
-export default burger;
+export default withRouter(burger);
