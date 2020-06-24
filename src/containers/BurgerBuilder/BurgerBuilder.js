@@ -31,7 +31,7 @@ class BurgerBuilder extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props)
+        console.log("purchasing initial state", this.state.purchasing)
         axios.get("https://best-burger-56cc2.firebaseio.com/ingredients.json")
             .then(response => {
                 console.log("ingredients get request", response)
@@ -128,7 +128,16 @@ class BurgerBuilder extends Component {
     //     .catch(error => {
     //         this.setState({loading:false, purchasing: false})
     //     });
-    this.props.history.push("/checkout")
+    const queryParams = [];
+    for (let i in this.state.ingredients){
+        //creating an array of strings in which the property name is set to the value we need
+        queryParams.push(encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i]))
+    }
+    const queryString = queryParams.join("&")
+    this.props.history.push({
+        pathname: "/checkout",
+        search: "?"+queryString,
+    })
     }
 
     render() {

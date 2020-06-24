@@ -1,13 +1,26 @@
-import React from "react";
+import React, {Component} from "react";
 
 import classes from "./Backdrop.css"
 
-const backdrop = (props) => (
-    props.show ? 
-    <div 
-        className={classes.Backdrop}
-        onClick={props.clicked}>
-    </div> : null
-);
+class Backdrop extends Component {
 
-export default backdrop;
+        componentDidUpdate(){
+            console.log("backdrop did update", this.props.show)
+        }
+
+        componentDidMount(){
+            console.log("backdrop component", this.props.show)
+        }
+    
+   render(){
+       return(
+        this.props.show === true ? 
+        <div 
+            className={classes.Backdrop}
+            onClick={this.props.clicked}>
+        </div> : null
+       )
+   } 
+}
+
+export default Backdrop;
