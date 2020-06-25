@@ -1,31 +1,43 @@
 .BuildControls {
     width: 100%;
-    background-color: #CF8F2E;
+    height:70vh;
+    background:
+        linear-gradient(
+            to right bottom,
+            #39c0ffb0,
+            #ef39ffb0
+        ),
+        url("https://images.unsplash.com/photo-1546839535-2e8e927fb5ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80");
+    background-size: cover;
+    background-position: top;
+    position: relative;
     display: flex;
     flex-flow: column;
     align-items: center;
     box-shadow: 0 2px 1px #ccc;
     margin: auto;
-    padding: 10px 0;
 }
 
-
 .OrderButton {
-    background-color: #DAD735;
+    background-color: var(--blue);
     outline: none;
     cursor: pointer;
-    border: 1px solid #966909;
-    color: #966909;
+    border: 1px solid white;
+    color: gray;
+    margin-top: 15px;
     font-family: inherit;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 15px 30px;
-    box-shadow: 2px 2px 2px #966909;
+    border-radius:100px;
+    box-shadow: 2px 2px 2px #eee;
 }
 
 .OrderButton:hover, .OrderButton:active {
-    background-color: #A0DB41;
-    border: 1px solid #966909;
-    color: #966909;
+    background-color: var(--blue);
+    border: 1px solid whitesmoke;
+    box-shadow: 0 1rem 2rem #00000b3f;
+    transform: translateY(-2px);
+    transition: all .2s;
 }
 
 .OrderButton:disabled {

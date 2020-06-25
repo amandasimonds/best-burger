@@ -1,5 +1,11 @@
+:root {
+  --blue: #39c0ff;
+  --purple: #ef39ff;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
 }
+
