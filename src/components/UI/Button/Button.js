@@ -3,6 +3,7 @@ import classes from "./Button.css"
 
 const button = (props) => (
     <button
+        disabled={props.disabled}
         onClick={props.clicked}
         //dynamically add classes that are conditional
         className={[classes.Button, classes[props.btnType]]

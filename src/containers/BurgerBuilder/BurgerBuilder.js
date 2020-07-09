@@ -103,6 +103,7 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
+        console.log("purchase handler", this.props)
     const queryParams = [];
     for (let i in this.state.ingredients){
         //creating an array of strings in which the property name is set to the value we need

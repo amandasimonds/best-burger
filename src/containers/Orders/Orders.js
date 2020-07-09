@@ -40,7 +40,6 @@ class Orders extends Component {
             </div>
         )
     }
-
 }
 
 export default withErrorHandler(Orders, axios)

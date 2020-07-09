@@ -2,7 +2,12 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+}
 
+.Select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .Label{
@@ -25,4 +30,9 @@
 .InputElement:focus {
     outline: none;
     background-color: #ccc;
+}
+
+.Invalid {
+    border: 1px solid red;
+    background-color: rgb(255, 152, 140);
 }
